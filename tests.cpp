@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "rectangle.h"
 #include "triangle.h"
-
+#include "circle.h"
 
 TEST_CASE("Rectangle")
 {
@@ -52,4 +52,22 @@ TEST_CASE("Triangle")
         REQUIRE_THROWS_AS(tri.set_values(0, 1), std::invalid_argument);
         REQUIRE_THROWS_AS(tri.set_values(3, 0), std::invalid_argument);
     }   
+}
+
+TEST_CASE("Circle")
+{
+    SECTION("Positive radius")
+    {
+        Circle circ(6);
+        REQUIRE(circ.area() == Approx(113.097));
+        circ.set_radius(1);
+        REQUIRE(circ.area() == Approx(3.14159));
+    }
+    SECTION("Negative or 0 radius")
+    {
+        Circle circ(4);
+        REQUIRE_THROWS_AS(circ.set_radius(0), std::invalid_argument);
+        REQUIRE_THROWS_AS(circ.set_radius(-2), std::invalid_argument);
+        REQUIRE_THROWS_AS(circ.set_radius(-100), std::invalid_argument);
+    }
 }

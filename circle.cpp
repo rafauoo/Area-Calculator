@@ -1,9 +1,14 @@
 #include "circle.h"
 #include <math.h>
+#include <iostream>
 using namespace std;
 
 void Circle::set_radius(int r)
 {
+    if (r <= 0)
+    {
+        throw invalid_argument("Negative value!");
+    }
     radius = r;
 }
 
