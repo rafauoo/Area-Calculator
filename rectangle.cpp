@@ -9,6 +9,10 @@ int Rectangle::area()
 
 void Rectangle::set_values(int x, int y)
 {
+    if (x <= 0 || y <= 0)
+    {
+        throw invalid_argument("Negative value!");
+    }
     width = x;
     height = y;
 }
