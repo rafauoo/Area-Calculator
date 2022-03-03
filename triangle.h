@@ -8,7 +8,7 @@ class Triangle
     public:
         Triangle(int, int);
         void set_values(int, int);
-        int area();
+        float area();
 };
 
 #endif

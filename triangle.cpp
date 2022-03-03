@@ -1,4 +1,6 @@
 #include "triangle.h"
+#include <iostream>
+using namespace std;
 
 Triangle::Triangle(int a, int h)
 {
@@ -7,11 +9,16 @@ Triangle::Triangle(int a, int h)
 
 void Triangle::set_values(int a, int h)
 {
+    if (a <= 0 || h <= 0)
+    {
+        throw invalid_argument("Negative value!");
+    }
     base = a;
     height = h;
 }
 
-int Triangle::area()
+float Triangle::area()
 {
-    return base * height / 2;
+    float darea = base * height;
+    return darea / 2;
 }
